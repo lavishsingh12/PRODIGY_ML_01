@@ -1,22 +1,67 @@
-# 🏡 House Price Prediction (Internship Task 1 - Prodigy Infotech)
-This project predicts house prices using a simple linear regression model.
-It takes square footage, number of bedrooms, and bathrooms as input.
-Built using Python and scikit-learn libraries.
-Created as Task 1 of my Prodigy Infotech internship.
+# 🏠 House Price Prediction using Linear Regression
 
-This project uses **Linear Regression** to predict house prices based on:
+This project predicts house prices based on features like **square footage**, **number of bedrooms**, and **number of bathrooms**using **Linear Regression**.
+It's a basic machine learning task that introduces regression modeling.
 
-- Square Footage (`GrLivArea`)
-- Number of Bedrooms (`BedroomAbvGr`)
-- Number of Bathrooms (`FullBath`)
+---
 
-## 📁 Files
+## 📊 Dataset
 
-- `house_price_prediction.py` – Main script to train model and take user input
-- `train.csv` – (Optional) Dataset from Kaggle used for training
+- Features:
+  - `Square Feet`
+  - `Bedrooms`
+  - `Bathrooms`
+- Target:
+  - `House Price`
 
-## 🚀 How to Run
+---
 
-1. Install dependencies:
-   ```bash
-   pip install pandas scikit-learn numpy
+## 🧠 ML Technique Used
+
+- **Linear Regression**
+  - Supervised learning
+  - Models the relationship between features and price
+  - Provides a best-fit line to predict house prices
+
+---
+
+## ⚙️ Tools & Libraries
+
+- Python
+- pandas
+- scikit-learn
+
+---
+
+## 📌 Steps Performed
+
+1. Load and explore the dataset
+2. Preprocess the data
+3. Train a linear regression model
+4. Make predictions
+5. Evaluate model performance (MSE, R² score)
+
+---
+
+## ✅ Output
+
+- Predicts house prices based on input features
+
+---
+
+## ▶️ How to Run
+
+1. Clone the repository  
+   `git clone https://github.com/your-username/your-house-price-predictor.git`
+
+2. Run the script or notebook  
+   `house_price_prediction.ipynb`
+
+---
+
+## 🧑‍💻 Author
+
+**Your Name**  
+GitHub: [@lavishsingh12](https://github.com/lavishsingh12)
+
+
