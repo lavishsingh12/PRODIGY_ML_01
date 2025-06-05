@@ -25,28 +25,42 @@ model.fit(X_train, y_train)
 # Prediction function for Gradio
 def predict_price(square_footage, bedrooms, bathrooms):
     try:
+        # Check if any field is empty
+        if not square_footage or not bedrooms or not bathrooms:
+            return "<span style='color:orange;'>⚠️ Please fill in all fields before submitting.</span>"
+
+        # Try converting inputs to proper types
+        square_footage = float(square_footage)
+        bedrooms = int(bedrooms)
+        bathrooms = int(bathrooms)
+
         new_data = pd.DataFrame(
             [[square_footage, bedrooms, bathrooms]],
             columns=["GrLivArea", "BedroomAbvGr", "FullBath"]
         )
         prediction = model.predict(new_data)[0]
-        return f"Estimated House Price: ₹ {prediction:,.3f}"
+        return f"""
+        <div style='text-align:center; font-size: 28px; color: green; font-weight: bold;'>
+            Estimated House Price: ₹ {prediction:,.3f}
+        </div>
+        """
+    except ValueError:
+        return "<span style='color:red;'>❌ Please enter valid numeric values only.</span>"
     except Exception as e:
-        return f"Error: {str(e)}"
+        return f"<span style='color:red;'>Unexpected error: {str(e)}</span>"
 
 # Gradio UI
 interface = gr.Interface(
     fn=predict_price,
     inputs=[
-        gr.Number(label="Square Footage (GrLivArea)"),
-        gr.Number(label="Bedrooms (BedroomAbvGr)"), 
-        gr.Number(label="Bathrooms (FullBath)")
+        gr.Textbox(label="Square Footage (GrLivArea)", placeholder="0"),
+        gr.Textbox(label="Bedrooms (BedroomAbvGr)", placeholder="0"),
+        gr.Textbox(label="Bathrooms (FullBath)", placeholder="0")
     ],
-    outputs=gr.Textbox(label="Predicted House Price"),
+    outputs=gr.HTML(label="Predicted House Price"),
     title="🏠 House Price Predictor",
-    description="This tool uses a trained Linear Regression model from the Kaggle dataset to predict the price of a house.",
+    description="This tool uses a trained Linear Regression model on the Ames Housing dataset to predict the price of a house.",
     allow_flagging="never"
 )
 
-# Launch the app
 interface.launch()
