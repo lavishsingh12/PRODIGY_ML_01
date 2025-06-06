@@ -52,7 +52,7 @@ It's a basic machine learning task that introduces regression modeling.
 ## ▶️ How to Run
 
 1. Clone the repository  
-   `git clone https://github.com/your-username/your-house-price-predictor.git`
+   `git clone (https://github.com/lavishsingh12/PRODIGY_ML_03.git)'
 
 2. Run the script or notebook  
    `house_price_prediction.ipynb`
